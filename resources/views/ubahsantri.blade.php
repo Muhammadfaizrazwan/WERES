@@ -1,32 +1,27 @@
-
-
 @section('konten')
-<h3>Daftar Menu</h3>
-<a class="btn btn-success" href="{{route('tambahsantri')}}"><i class="fa fa-plus"></i> Tambah Santri</a><br><br>
-<table class="table table-bordered table-hover">
-  <tr>
-    <th>ID</th>
-    <th>Nama Makanan</th>
-    <th>Jenis</th>
-    <th>Harga</th>
-    <th>Aksi</th>
-  </tr>
+<h3>Ubah Data menu</h3>
   @foreach($santri as $s)
-  <tr>
-    <td>{{$s->id}}</td>
-    <td>{{$s->nama}}</td>
-    <td>{{$s->jenis}}</td>
-    <td>{{$s->harga}}</td>
-
-    <td>
-      <a href="/santri/ubah/{{$s->id}}" class="btn btn-warning btn-sm"><i class="fa fa-pencil"></i></a>
-      <a href="/santri/hapus/{{$s->id}}" onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-    </td>
-  </tr>
+    <form method="post" action="{{route('updatesantri')}}">
+      @csrf
+      <input type="hidden" name="id" value="{{$s->id}}">
+      <div class="form-group">
+        <label>Nama</label>
+        <input type="text" name="nama" value="{{$s->nama}}" class="form-control" placeholder="Nama" required="">
+      </div>
+      <div class="form-group">
+        <label>jenis</label>
+        <input type="text" name="jenis" value="{{$s->jenis}}" class="form-control" placeholder="jenis" required="">
+      </div>
+      <div class="form-group">
+        <label>harga</label>
+        <input type="text" name="harga" value="{{$s->harga}}" class="form-control" placeholder="harga" required="">
+      </div>
+      <div class="form-group text-right">
+        <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Update Data</button>
+      </div>
+    </form>
   @endforeach
-</table>
 @endsection
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -113,4 +108,5 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 </html>
+
 

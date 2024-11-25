@@ -9,6 +9,6 @@ class SantriModel3 extends Model
 {
     use HasFactory;
 
-    protected $table = 'santri'; // Ganti dengan nama tabel di database Anda
-    protected $fillable = ['nama_santri', 'tmp_lahir', 'tgl_lahir', 'alamat', 'no_hp'];
+    protected $table = 'menu'; // Ganti dengan nama tabel di database Anda
+    protected $fillable = ['nama', 'jenis', 'harga',];
 }

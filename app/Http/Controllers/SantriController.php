@@ -12,9 +12,10 @@ class SantriController extends Controller
 {
     public function tampilsantri()
     {
-        return view('tampilsantri');
+       $santri = SantriModel3::select('*')
+                 ->get();
+       return view('tampilsantri', ['santri' => $santri]);
     }
-
     public function tambahsantri()
     {
         return view('tambahsantri');
@@ -23,13 +24,41 @@ class SantriController extends Controller
     public function simpanSantri(Request $request)
     {
         $santri = SantriModel3::create([
-            'nama_santri' => $request->nama_santri,
-            'tmp_lahir' => $request->tmp_lahir,
-            'tgl_lahir' => $request->tgl_lahir,
-            'alamat' => $request->alamat,
-            'no_hp' => $request->no_hp,
+            'nama' => $request->nama,
+            'jenis' => $request->jenis,
+            'harga' => $request->harga,
         ]);
 
         return redirect()->route('tampilsantri');
     }
+
+    public function ubahsantri($id)
+{
+   $santri = SantriModel3::select('*')
+             ->where('id', $id)
+             ->get();
+
+   return view('ubahsantri', ['santri' => $santri]);
+}
+
+public function updatesantri(Request $request)
+{
+   $santri = SantriModel3::where('id', $request->id)
+             ->update([
+                    'nama' => $request->nama,
+                    'jenis' => $request->jenis,
+                    'harga' => $request->harga,
+             ]);
+
+   return redirect()->route('tampilsantri');
+}
+
+public function hapussantri($id)
+{
+    $santri = SantriModel3::where('id', $id)
+              ->delete();
+
+    return redirect()->route('tampilsantri');
+}
+
 }

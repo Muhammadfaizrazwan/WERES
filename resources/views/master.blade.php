@@ -16,41 +16,40 @@
             overflow: hidden;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
         .card img {
             width: 100%;
             height: 200px;
             object-fit: cover;
+            transition: transform 0.3s ease;
         }
+
+        .card:hover img {
+            transform: scale(1.1);
+        }
+
         .card-body {
             padding: 15px;
             text-align: center;
         }
+
         .card-body h5 {
             font-size: 18px;
             font-weight: bold;
             margin-bottom: 10px;
         }
+
         .card-body p {
             font-size: 14px;
             color: #666;
             margin-bottom: 15px;
-        }
-        .card-footer {
-            background-color: transparent;
-            border-top: none;
-            text-align: center;
-            padding: 10px;
-        }
-        .btn-view-more {
-            background-color: #f39c12;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 20px;
-            text-decoration: none;
-        }
-        .btn-view-more:hover {
-            background-color: #d87d0f;
         }
     </style>
 </head>
@@ -89,10 +88,9 @@
                                     <i class="fas fa-utensils"></i> Kategori <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#"><i class="fas fa-leaf"></i> Makanan Pembuka</a></li>
-                                    <li><a href="#"><i class="fas fa-drumstick-bite"></i> Makanan Utama</a></li>
-                                    <li><a href="#"><i class="fas fa-coffee"></i> Minuman</a></li>
-                                    <li><a href="#"><i class="fas fa-ice-cream"></i> Pencuci Mulut</a></li>
+                                    <li><a href="#"><i class="fas fa-utensils"></i> Makanan </a></li>
+                                    <li><a href="#"><i class="fas fa-glass-martini-alt"></i> Minuman </a></li>
+                                    <li><a href="#"><i class="fas fa-birthday-cake"></i> Kue </a></li>
                                 </ul>
                             </li>
 
@@ -107,13 +105,6 @@
                                     <li><a href="{{route('actionlogout')}}"><i class="fa fa-power-off"></i> Log Out</a></li>
                                 </ul>
                             </li>
-
-
-                    <!-- Menu Login/Register untuk Guest -->
-                    <li><a href="{{route('login')}}">Login</a></li>
-                    <li><a href="{{route('register')}}">Register</a></li>
-                   
-
                         </ul>
                     </div>
                 </div>

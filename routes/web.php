@@ -40,3 +40,7 @@ Route::get('santri/tampil', [SantriController::class, 'tampilsantri'])->name('ta
 Route::get('santri/tambah', [SantriController::class, 'tambahsantri'])->name('tambahsantri')->middleware('auth');
 Route::post('santri/simpan', [SantriController::class, 'simpansantri'])->name('simpansantri')->middleware('auth');
 
+Route::get('santri/ubah/{id}', [SantriController::class, 'ubahsantri'])->name('ubahsantri')->middleware('auth');
+Route::post('santri/update', [SantriController::class, 'updatesantri'])->name('updatesantri')->middleware('auth');
+
+Route::get('santri/hapus/{id_santri}', [SantriController::class, 'hapussantri'])->name('hapussantri')->middleware('auth');
